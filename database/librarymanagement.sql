@@ -155,4 +155,22 @@ CREATE TABLE book_categories (
 );
 
 
+-- 7. LOAN REQUESTS
+
+CREATE TABLE loan_requests (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+
+    user_id BIGINT NOT NULL REFERENCES users(id),
+    book_id BIGINT NOT NULL REFERENCES books(id),
+
+    status VARCHAR(20) NOT NULL DEFAULT 'pending'
+        CHECK (status IN ('pending', 'approved', 'rejected', 'cancelled')),
+
+    requested_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    reviewed_at TIMESTAMPTZ,
+    reviewed_by BIGINT REFERENCES users(id),
+    review_note TEXT
+);
+
+
 

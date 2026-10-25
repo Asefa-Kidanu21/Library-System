@@ -10,6 +10,7 @@ import bookCopyRoutes from "./src/features/bookCopies/bookCopyRoutes.js";
 import loanRoutes from "./src/features/loans/loanRoutes.js";
 import categoryRoutes from "./src/features/categories/categoryRoutes.js";
 import bookCategoryRoutes from "./src/features/bookCategories/bookCategoryRoutes.js";
+import loanRequestRoutes from "./src/features/loanRequests/loanRequestRoutes.js";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/books", bookRoutes);
 app.use("/api/loans", loanRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/book-categories", bookCategoryRoutes);
+app.use("/api/loan-requests", loanRequestRoutes);
 
 
 

@@ -6,7 +6,7 @@ import {
   updateBookCopy,
   deleteBookCopy,
 } from "./bookCopyApi.js";
-import { getAllBooks } from "../books/bookApi.js";
+import { getBooks } from "../books/bookApi.js";
 
 const emptyForm = {
   book_id: "",
@@ -37,7 +37,7 @@ export default function BookCopiesPage({ user }) {
 
       const [copyResult, bookResult] = await Promise.all([
         getAllBookCopies(),
-        getAllBooks(),
+        getBooks(),
       ]);
 
       setCopies(copyResult.data || []);
